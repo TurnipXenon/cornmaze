@@ -1,6 +1,4 @@
 site_name: Cornmaze
-theme:
-  name: readthedocs
 repo_url: https://github.com/TurnipXenon/cornmaze
 nav:
   - Home: index.md
