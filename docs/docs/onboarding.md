@@ -2,18 +2,7 @@
 
 ## Setup
 
-- [ ] https://twitchtv.github.io/twirp/docs/install.html
-- [ ] https://www.geeksforgeeks.org/how-to-install-protocol-buffers-on-windows/
-- [ ] https://github.com/golang/go/wiki/PackagePublishing
-
-protoc --twirp_out=. --go_out=. rpc/turnip/service.proto
-go get -u github.com/TurnipXenon/turnip_api/rpc/turnip@latest
-go get -u github.com/TurnipXenon/turnip_api/rpc/turnip@66742860fbf07fd14b927c88fab7a7083b6ffe75 <- more specific or stable
-
-go run github.com/TurnipXenon/turnip_api/dev/sync_mkdocs_readme
-go install github.com/TurnipXenon/turnip_api/dev/sync_mkdocs_readme@latest
-
-dont forget to generate the clients when making changes! lol
+You just need go 1.17, and you should be run all the scripts here.
 
 ## MKDocs
 
