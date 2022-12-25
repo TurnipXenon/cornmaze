@@ -10,3 +10,12 @@
 **Command**
 
 - Run `go run github.com/TurnipXenon/cornmaze/dev/sync_readme`
+
+## Special repositories
+
+These repositories don't sync well with our template repository. We need to plan a way to sync their docs at some point:
+
+- cornmaze
+- potato
+- turnip
+- turnip_api
