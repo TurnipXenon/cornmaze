@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Code standards - Turnip</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Code standards";
+    var mkdocs_page_input_path = "code_standards.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Turnip</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../onboarding/">Onboarding</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../interacting_with_cornmaze/">Interacting with cornmaze</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../private_workflow/">Private workflow</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Code standards</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#project-values">Project values</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#context">Context</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#logging-rules">Logging rules</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#go-imports">Go imports</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Turnip</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Code standards</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="code-standards">Code standards</h1>
+<h2 id="project-values">Project values</h2>
+<p>For deciding the rules laid out below, and possibly when should we break those rules, we have these values to follow for
+our pet projects:</p>
+<ol>
+<li><strong>Fun:</strong> My primary goal is to have fun. Everything else is superseded. I should always ask myself if I'm having fun
+   and what's stopping me from having fun.</li>
+<li><strong>Delight:</strong> I want to make my life easier as a developer or an artist. I want to skip to the fun part. I should use
+   the tools that will help me or make those tools whenever I can.</li>
+<li><strong>Empathy:</strong> I pretend another developer will eventually use or look at what I’m making. This sounds weird but I find
+   myself having less empathy on myself, but I highly value people working with me. If I'm struggling to value myself,
+   then maybe if I pretend to treat myself to be as another person, then maybe I can show myself more empathy too.</li>
+<li><strong>Transparency:</strong> Share and document the successes and failures. Oh, the mortifying ordeal of being known...</li>
+<li><strong>Focus:</strong> This one was not even a value. It was originally "avoid premature micro-optimization" because I overthink
+   too much. I need to focus on what makes me happy, and that's expressing myself through games and whatever project I
+   want to make.</li>
+<li><strong>Forgiveness:</strong> Self-improvement is okay, but don’t be too critical and know you did your best at the time. It's
+   something I've been learning these last few months, and maybe this year and the next year is meant to forgive myself
+   for my shortcomings. Accept who I am. Be thankful of all the moments I tried my best, whether I failed or succeeded.</li>
+</ol>
+<h3 id="context">Context</h3>
+<p>I've been reflecting about my pet projects that have either never been started or have never been finished. I'm
+currently reviewing my self. Things have not been going well. And on a related note, what made most of these projects
+just kinda not go well. These projects were meant to be fun, but they now scare me...</p>
+<p>So, I wrote down what I think went wrong, and what I could do better in the future.</p>
+<p><strong>What did not go well?</strong></p>
+<ol>
+<li>I overthink about the solutions.</li>
+<li>They're supposed to be hobbies but I'm always finding a way to turn them into the constant self-improvement that just
+   disheartens me at the end of the day.</li>
+<li>I don't reward myself and would often punish myself for not being on par with what I want.</li>
+</ol>
+<p>I want to change the framework of my mindset. Not that I have a specific goal, but I was thinking about what values
+should I uphold, so I could get back to having fun with my hobbies.</p>
+<p>I've kinda set myself some values that I want to remind myself. Maybe I'll formulate something more specific out of
+this.</p>
+<h2 id="logging-rules">Logging rules</h2>
+<p>We came up with these rules to help debugging but also avoid clutter and info leaking to the public.</p>
+<ol>
+<li>Always use <code>WrapErrorWithDetails</code> at the deepest level of your code. If you got an error from a code you called
+   yourself, reconsider wrapping the error with this.<ul>
+<li>If you want to wrap an error, use our custom <code>ErrorWrapper</code>.</li>
+</ul>
+</li>
+<li>It's okay to log on every level of the stack using <code>LogDetailedError</code>.</li>
+<li>Do not show the client the errors as it is! Use <code>ErrorWrapper.UserMessage</code>!</li>
+</ol>
+<h2 id="go-imports">Go imports</h2>
+<p>Follow this structure:</p>
+<pre><code>import (
+    // system
+    &quot;context&quot;
+    &quot;errors&quot;
+    &quot;net/http&quot;
+
+    // external
+    &quot;github.com/twitchtv/twirp&quot;
+    &quot;golang.org/x/crypto/bcrypt&quot;
+
+    // internal remote: use go get
+    &quot;github.com/TurnipXenon/turnip_api/rpc/turnip&quot;
+
+    // internal local
+    &quot;github.com/TurnipXenon/Turnip/internal/server&quot;
+    &quot;github.com/TurnipXenon/Turnip/internal/util&quot;
+    &quot;github.com/TurnipXenon/Turnip/pkg/models&quot;
+)
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../private_workflow/" class="btn btn-neutral" title="Private workflow"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../private_workflow/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

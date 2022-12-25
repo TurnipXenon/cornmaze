@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Private workflow - Turnip</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Private workflow";
+    var mkdocs_page_input_path = "private_workflow.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Turnip</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../onboarding/">Onboarding</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../interacting_with_cornmaze/">Interacting with cornmaze</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Private workflow</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#private-branch">Private branch</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#future-plan">Future plan</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../code_standards/">Code standards</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Turnip</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Private workflow</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="private-workflow">Private workflow</h1>
+<p>Personal notes about how to keep certain parts of the code and content hidden.</p>
+<p>We want to be transparent as much as we want, but we also want to keep certain things private. Mostly due to personal
+preferences. We have two ways to keep things from leaking:</p>
+<ol>
+<li>Databases</li>
+<li>Private branches</li>
+</ol>
+<h2 id="private-branch">Private branch</h2>
+<p>We work on four main branches:</p>
+<ol>
+<li>origin/main</li>
+<li>origin/wip</li>
+<li>private/main</li>
+<li>origin/wip</li>
+</ol>
+<p>The branches interact like this:</p>
+<pre><code>time/steps -&gt;
+
+local/wip      *----------------*--
+              1 \            7 / 
+origin/main    --*-------*-*--*----
+                2 \  ~4 / 5 \     
+local/wip      ----*---*-----*-----
+                  3 \ /     /6\
+private/main   ------*-----*-------
+</code></pre>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>We make a PR to origin, and merge our changes from WIP to origin/main.</li>
+<li>We pull changes from origin/main to local/wip.</li>
+<li>We make sure we have the latest changes from private. We then make our private changes, make a PR to private and
+   merge them to private/main.</li>
+<li>Step 4 is special because we have to run a script which scrubs the private information from our templates. We squash
+   our commits to hide these changes. We make a PR and merge to origin/main.</li>
+<li>For step 5, we delete local/wip, and make a new local/wip. We merge origin/main to local/wip and handle merge
+   conflicts.</li>
+<li>We merge these resolved conflicts to private/main.</li>
+<li>Merge the latest changes from origin/main to local/wip. We continue working on our local/wip.</li>
+</ol>
+<h2 id="future-plan">Future plan</h2>
+<p>We want this repository to be a plugin to the actual code we have.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../code_standards/" class="btn btn-neutral float-right" title="Code standards">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../interacting_with_cornmaze/" class="btn btn-neutral" title="Interacting with cornmaze"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../interacting_with_cornmaze/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../code_standards/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
