@@ -75,3 +75,10 @@ import (
 	"github.com/TurnipXenon/Turnip/pkg/models"
 )
 ```
+
+## Contribution
+
+Merging to main is simple, just make a PR.
+
+To merge to build/production, create a new branch called main-to-build-production based on main, then rebase
+build/production on it. After that, squash merge.
