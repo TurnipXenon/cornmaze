@@ -105,6 +105,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#react-code-block-ordering" class="nav-link">React code block ordering</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -183,7 +187,17 @@ this.</p>
 <h2 id="contribution">Contribution</h2>
 <p>Merging to main is simple, just make a PR.</p>
 <p>To merge to build/production, create a new branch called main-to-build-production based on main, then rebase
-build/production on it. After that, squash merge.</p></div>
+build/production on it. After that, squash merge.</p>
+<h2 id="react-code-block-ordering">React code block ordering</h2>
+<ol>
+<li>constants</li>
+<li>useState-like hooks</li>
+<li>useEffects</li>
+<li>const functions</li>
+<li>render guards</li>
+<li>conditional renders</li>
+<li>return render</li>
+</ol></div>
             </div>
         </div>
 
