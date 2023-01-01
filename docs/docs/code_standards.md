@@ -82,3 +82,13 @@ Merging to main is simple, just make a PR.
 
 To merge to build/production, create a new branch called main-to-build-production based on main, then rebase
 build/production on it. After that, squash merge.
+
+## React code block ordering
+
+1. constants
+2. useState-like hooks
+3. useEffects
+4. const functions
+5. render guards
+6. conditional renders
+7. return render
